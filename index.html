@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Increase Your Level</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="w-full h-screen flex justify-center items-center gap-10 flex-col">
+        <div id="overAll">
+        <h1 class="font-semibold text-xl">Click To Increase Your Level</h1>
+        <button onclick="levelOne()" id="level1" class="transition font-semibold bg-blue-600 py-2 px-6 text-white rounded-lg hover:bg-blue-700 text-sm text-xl">Level 1</button>
+        <button onclick="levelTwo()" id="level2" class="transition font-semibold bg-green-600 py-2 px-6 text-white rounded-lg hover:bg-green-700 hidden text-2xl">Level 2</button>
+        <button onclick="levelThree()" id="level3" class="transition font-semibold bg-orange-600 py-2 px-6 text-white rounded-lg hover:bg-orange-700 hidden text-3xl">Level 3</button>
+        </div>
+        <div id="videoContainer" class="hidden">
+            <video width="1000px" height="1000px" id="myVideo" loop controls>
+                <source src="video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var video = document.getElementById("myVideo");
+    const level1 = document.querySelector("#level1");
+    const level2 = document.querySelector("#level2");
+    const level3 = document.querySelector("#level3");
+    const overAll = document.querySelector("#overAll");
+    const videoContainer = document.querySelector("#videoContainer");
+    function myFunction() {
+        overAll.style.display = "block";
+        videoContainer.style.display = "none";
+        level1.style.display = "block";
+        video.pause();
+    }
+    function levelOne() {
+        level1.style.display = "none";
+        level2.style.display = "block";
+    }
+    function levelTwo() {
+        level2.style.display = "none";
+        level3.style.display = "block";
+    }
+    function levelThree() {
+        level3.style.display = "none";
+        overAll.style.display = "none";
+        videoContainer.style.display = "block";
+        video.play();
+        setTimeout(myFunction, 5300);
+    }
+</script>
